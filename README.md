@@ -52,7 +52,7 @@
 
 ## On both the VMs
 
-swapoff -a
+    swapoff -a
 
 ## If swap entries are in /etc/fstab – comment them and restart the VM.
 
@@ -81,4 +81,3 @@ swapoff -a
 ## Apply sysctl params without reboot. On both VMs
 
     sudo sysctl --system
-
