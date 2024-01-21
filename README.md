@@ -1,10 +1,10 @@
 # This Documentation is to install kubernetes using kubeadm. We will be using kubernetes master version 1.29 for the ubuntu-22.04.
 
-##1. Connect with lab and provision the two vms and connect with
+## 1. Connect with lab and provision the two vms and connect with
 them. Vm-2 – kubem, vm-3 kuben
 
 
-##2. On kubernetes master
+## 2. On kubernetes master
     sudo -i
     hostnamectl set-hostname kubem
     exec bash
@@ -15,12 +15,12 @@ them. Vm-2 – kubem, vm-3 kuben
     exec bash
 
 
-##3. On both the vms.
+## 3. On both the vms.
     apt install net-tools
     ifconfig
 
 
-##4. Now we are going to fix the communicate between two nodes.
+## 4. Now we are going to fix the communicate between two nodes.
 
 On kubem →
     nano /etc/hosts 
