@@ -1,7 +1,6 @@
 # This Documentation is to install kubernetes using kubeadm. We will be using kubernetes master version 1.29 for the ubuntu-22.04.
 
-## 1. Connect with lab and provision the two vms and connect with
-them. Vm-2 – kubem, vm-3 kuben
+## 1. Connect with lab and provision the two vms and connect with them. We will be treating Vm-2 – kubem (as kubernetes master), vm-3 - kuben (as kubernetes node)
 
 
 ## 2. On kubernetes master
