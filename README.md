@@ -47,3 +47,12 @@
         ping kubem
 
 ## Both must be pinging each other.
+
+## 6. In a cluster swap memory must be disabled on all the participating machines.
+
+## On both the VMs
+
+swapoff -a
+
+## If swap entries are in /etc/fstab – comment them and restart the VM.
+
