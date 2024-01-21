@@ -163,3 +163,13 @@
 ## Now your cluster is up and running and you can communicate with it using kubectl command line.
 
     kubectl get nodes
+
+## 11. Enable calico plugin on master →
+ 
+    kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
+    
+    curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
+
+    kubectl create -f custom-resources.yaml
+
+    kubectl get pods -n calico-system
