@@ -19,7 +19,7 @@
     apt install net-tools
     ifconfig
 
-## 4. Now we are going to fix the communicate between two nodes.
+## 4. Now we are going to fix the communication between two nodes.
 
 ## On kubem →
 
@@ -36,7 +36,7 @@
     127.0.0.1 kuben localhost
     172.31.88.43 kubem
 
-5. Ping each other and verify they are
-   reachable on hostnames.
+## 5. Ping each other and verify they can reach other on hostnames.
+
    ping kuben - from master
    ping kubem – from node
