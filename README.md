@@ -81,3 +81,12 @@
 ## Apply sysctl params without reboot. On both VMs
 
     sudo sysctl --system
+
+## Verify that the br_netfilter, overlay modules are loaded by running the following commands, on both VMs :
+
+    lsmod | grep br_netfilter
+    lsmod | grep overlay
+
+## Verify that the net.bridge.bridge-nf-call-iptables, net.bridge.bridge-nf-call-ip6tables, and net.ipv4.ip_forward system variables are set to 1 in your sysctl config by running the following command, on both VMs :
+
+    sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
