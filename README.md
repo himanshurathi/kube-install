@@ -90,3 +90,39 @@
 ## Verify that the net.bridge.bridge-nf-call-iptables, net.bridge.bridge-nf-call-ip6tables, and net.ipv4.ip_forward system variables are set to 1 in your sysctl config by running the following command, on both VMs :
 
     sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
+
+## 8. Install the run time, cri-o on both VMs.
+
+    OS="xUbuntu_22.04"
+
+    VERSION="1.28"
+
+    cat <<EOF | sudo tee 
+    
+    /etc/apt/sources.list devel:kubic:libcontainers:stable.list
+
+    deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/ /
+
+    EOF
+
+    cat <<EOF | sudo tee
+
+    /etc/apt/sources.list.d/devel:kubic:libcontainers:stable:cri-o:$VERSION.list
+
+    deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable:/cri-o:/$VERSION/$OS/ /
+
+    EOF
+
+    curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/Release.key | sudo apt-key --keyring /etc/apt/trusted.gpg.d/libcontainers.gpg add -
+
+    curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | sudo apt-key --keyring /etc/apt/trusted.gpg.d/libcontainers.gpg add -
+
+    sudo apt-get update
+
+    sudo apt-get install cri-o cri-o-runc cri-tools -y
+
+    sudo systemctl daemon-reload
+
+    sudo systemctl enable crio --now
+
+    service crio status
