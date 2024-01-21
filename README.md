@@ -147,3 +147,19 @@
     sudo apt-get install -y kubelet kubeadm
 
     sudo apt-mark hold kubelet kubeadm
+
+## 10. Now finally to initialise kubernetes master run the below command after replacing the kubemip with kubernetes master ip :
+
+    kubeadm init --apiserver-advertise-address=kubemip --apiserver-cert-extra-sans=kubemip --pod-network-cidr=192.168.0.0/16 --node-name kubem
+
+## Ensure to the note the join command displayed at the end, this is what you need to run on the kuben to have that join the cluster.
+
+## After the above step, your kubernetes master components starts coming up and should be up and running but to interact with kubernetes master you need a kubeconfig file which helps you authenticate/authorise with the cluster.
+
+    mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+## Now your cluster is up and running and you can communicate with it using kubectl command line.
+
+    kubectl get nodes
