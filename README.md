@@ -38,5 +38,12 @@
 
 ## 5. Ping each other and verify they can reach other on hostnames.
 
-   ping kuben - from master
-   ping kubem – from node
+## from kubem
+
+        ping kuben
+
+## from kuben
+
+        ping kubem
+
+## Both must be pinging each other.
